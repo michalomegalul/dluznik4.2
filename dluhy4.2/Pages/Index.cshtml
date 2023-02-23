@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Create Transaction";
+}
+
+<h1>Create Transaction</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="GiverId">Giver:</label>
+        <select asp-for="GiverId" asp-items="Model.UserSelectList"></select>
+        <span asp-validation-for="GiverId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReceiverId">Receiver:</label>
+        <select asp-for="ReceiverId" asp-items="Model.UserSelectList"></select>
+        <span asp-validation-for="ReceiverId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount">Amount:</label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
